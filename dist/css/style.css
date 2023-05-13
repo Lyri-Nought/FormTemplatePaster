@@ -2,15 +2,26 @@ body{
     margin: 0;
 }
 
-textarea {
-    resize: none;
-    width:100%;
-    max-width: 41rem;
-    min-height:3rem;
-}
-
 #main{
     width: 50%;
     min-width: 480px;
     margin: 10px auto 0 auto;
+}
+#inputArea{
+    border: 1px solid #CCCCCC;
+    padding: 10px;
+}
+
+.input-form{
+    border: 1px solid #CCCCCC;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.deleteButton{
+    margin-top: 5px;
+}
+
+input{
+    width: calc(100% - 7rem - 10px);
 }
