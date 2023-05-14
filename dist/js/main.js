@@ -30,15 +30,15 @@ function exportBookmarklet(){//完成したbookmarkletをクリップボード�
             addFormValue(element, value);
         }
         
-        function fillInputInTheLabel(labelName, text){
-            labelName = decodeURIComponent(labelName)
-            text = decodeURIComponent(text)
-            const allForms = Array.from(document.querySelector("div.o3Dpx").childNodes)
-            const listItem = allForms.find(value => value.querySelector("span").textContent === labelName)
+        function fillInputInTheLabel(specify, content){
+            const labelName = decodeURIComponent(specify);
+            const text = decodeURIComponent(content);
+            const allForms = Array.from(document.querySelector("div.o3Dpx").childNodes);
+            const listItem = allForms.find(value => value.querySelector("span").textContent === labelName);
             if(listItem){
-                const formInput = listItem.querySelector("input")
+                const formInput = listItem.querySelector("input");
                 if(formInput){
-                    overrideFormValue(formInput, text)
+                    overrideFormValue(formInput, text);
                 }
             }
         }
