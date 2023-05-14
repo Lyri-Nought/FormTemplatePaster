@@ -18,8 +18,13 @@ function overrideFormValue(element, value){ // フォームのinput要素等の�
 
 function fillInputInTheLabel(labelName, text){ // 特定のラベルを持つmicrosoftフォームのinput要素に内容を入力する関数
     const allForms = Array.from(document.querySelector("div.o3Dpx").childNodes) // フォームの要素を配列型で取得する
-    const formInput = allForms.find(value => value.querySelector("span").textContent === labelName).querySelector("input") // 指定されたラベルと合致するラベルを持ったinput要素を取得する
-    overrideFormValue(formInput, text)
+    const listItem = allForms.find(value => value.querySelector("span").textContent === labelName) // 指定されたラベルと合致するラベルを持ったlistitemを探す
+    if(listItem){
+        const formInput = listItem.querySelector("input") // 指定されたラベルと合致するラベルを持ったinput要素を取得する
+        if(formInput){
+            overrideFormValue(formInput, text)
+        }
+    }
 }
 
 fillInputInTheLabel("メールアドレス", "hoge@hogemail.com")

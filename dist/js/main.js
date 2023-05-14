@@ -31,11 +31,15 @@ function exportBookmarklet(){//完成したbookmarkletをクリップボード�
         }
         
         function fillInputInTheLabel(labelName, text){
-            const allForms = Array.from(document.querySelector("div.o3Dpx").childNodes);
-            try {
-                const formInput = allForms.find(value => value.querySelector("span").textContent === decodeURIComponent(labelName)).querySelector("input");
-                overrideFormValue(formInput, decodeURIComponent(text));
-            }catch {
+            labelName = decodeURIComponent(labelName)
+            text = decodeURIComponent(text)
+            const allForms = Array.from(document.querySelector("div.o3Dpx").childNodes)
+            const listItem = allForms.find(value => value.querySelector("span").textContent === labelName)
+            if(listItem){
+                const formInput = listItem.querySelector("input")
+                if(formInput){
+                    overrideFormValue(formInput, text)
+                }
             }
         }
         
